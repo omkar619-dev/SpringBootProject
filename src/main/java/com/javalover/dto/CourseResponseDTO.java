@@ -1,2 +1,4 @@
-package com.javalover.dto;public class CourseResponseDTO {
+package com.javalover.dto;
+
+public class CourseResponseDTO {
 }
