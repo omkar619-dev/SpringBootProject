@@ -28,4 +28,6 @@ public class CourseEntity {
     private Date startDate;
     private Boolean isCertificateAvailable;
     private String Description;
+    private String emailId;
+    private String contact;
 }

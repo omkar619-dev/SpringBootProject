@@ -1,51 +1,98 @@
 package com.javalover.service;
 
-import com.javalover.dto.Course;
+import com.javalover.dao.CourseDao;
+import com.javalover.dto.CourseRequestDTO;
+import com.javalover.dto.CourseResponseDTO;
+import com.javalover.entity.CourseEntity;
+import com.javalover.exception.CourseServiceBusinessException;
+import com.javalover.util.AppUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 public class CourseService {
-private List<Course> courseDatabase = new ArrayList<Course>();
+    @Autowired
+    private CourseDao courseDao;
+//private List<Course> courseDatabase = new ArrayList<Course>();
 
 //create and save course object in db
-public Course onboardNewCourse(Course course) {
-    course.setCourseId(new Random().nextInt(800008));
-    courseDatabase.add(course);
-    return course;
+public CourseResponseDTO onboardNewCourse(CourseRequestDTO courseRequestDTO) {
+    //convert DTO to Entity
+    CourseEntity courseEntity = AppUtils.mapDTOToEntity(courseRequestDTO);
+    CourseEntity entity = null;
+    try{
+        entity = courseDao.save(courseEntity);
+        CourseResponseDTO courseResponseDTO = AppUtils.mapEntityToDTO(entity);
+        courseResponseDTO.setCourseUniqueCode(UUID.randomUUID().toString().split("-")[0]);
+        return courseResponseDTO;
+    }
+    catch (Exception exception){
+        throw new CourseServiceBusinessException("Onboard new course service method failed");
+    }
+    // convert Entity to Response DTO
 }
+
+
 // view all the courses from the database
-public List<Course> viewAllCourses() {
-    return courseDatabase;
+public List<CourseResponseDTO> viewAllCourses() {
+    Iterable<CourseEntity> courseEntities = null;
+    try {
+        courseEntities = courseDao.findAll();
+        return StreamSupport.stream(courseEntities.spliterator(),false)
+                .map(AppUtils::mapEntityToDTO)
+                .collect(Collectors.toList());
+    }
+catch (Exception exception){
+    throw new CourseServiceBusinessException("viewAllCourses service method failed");
+}
+
+
 }
 
 //filter course by courseId
-public Course findByCourseId(Integer courseId) {
-    return courseDatabase.stream()
-            .filter(course -> course.getCourseId()
-                    .equals(courseId))
-            .findFirst().orElse(null);
+public CourseResponseDTO findByCourseId(Integer courseId) {
+    // Select * from table where id =?
+    CourseEntity courseEntity = courseDao.findById(courseId)
+            .orElseThrow(()-> new CourseServiceBusinessException(courseId + " Does not exist in system!"));
+    return AppUtils.mapEntityToDTO(courseEntity);
 }
 
 //delete the course
     public void deleteCourse(Integer courseId) {
-    Course course = findByCourseId(courseId);
-    courseDatabase.remove(course);
+    courseDao.deleteById(courseId);
+
     }
 
     //update the course
-    public Course updateCourse(Integer courseId, Course course) {
-       Course existingCourse = findByCourseId(courseId);
-       courseDatabase.set(courseDatabase.indexOf(existingCourse), course);
-       return course;
+    public CourseResponseDTO updateCourse(Integer courseId, CourseRequestDTO courseRequestDTO) {
+    //get the existing obejct and modify that object an save it in db
+       CourseEntity existingCourseEntity = courseDao.findById(courseId).orElse(null);
+        existingCourseEntity.setName(courseRequestDTO.getName());
+        existingCourseEntity.setDuration(courseRequestDTO.getDuration());
+        existingCourseEntity.setTrainerName(courseRequestDTO.getTrainerName());
+        existingCourseEntity.setCourseType(courseRequestDTO.getCourseType());
+        existingCourseEntity.setCount(courseRequestDTO.getCount());
+        existingCourseEntity.setFees(courseRequestDTO.getFees());
+        existingCourseEntity.setStartDate(courseRequestDTO.getStartDate());
+        existingCourseEntity.setIsCertificateAvailable(courseRequestDTO.getIsCertificateAvailable());
+        existingCourseEntity.setDescription(courseRequestDTO.getDescription());
+
+        CourseEntity updatedCourseEntity =  courseDao.save(existingCourseEntity);
+
+       return AppUtils.mapEntityToDTO(updatedCourseEntity);
     }
 
     public List<Map<String, Object>> getCourseTypeCounts() {
         // Group courses by courseType and calculate the count for each type
-        Map<String, Long> courseTypeCounts = courseDatabase.stream()
-                .collect(Collectors.groupingBy(Course::getCourseType, Collectors.counting()));
+        Iterable<CourseEntity> courseEntities = courseDao.findAll();
+        // Map the courses to DTOs and group by courseType to calculate the count
+        Map<String, Long> courseTypeCounts = StreamSupport.stream(courseEntities.spliterator(), false)
+                .map(AppUtils::mapEntityToDTO)
+                .collect(Collectors.groupingBy(CourseResponseDTO::getCourseType, Collectors.counting()));
 
         // Convert the Map to a List of Maps with "courseType" and "count" fields
         List<Map<String, Object>> result = new ArrayList<>();
