@@ -6,6 +6,8 @@ import com.javalover.dto.CourseResponseDTO;
 import com.javalover.entity.CourseEntity;
 import com.javalover.exception.CourseServiceBusinessException;
 import com.javalover.util.AppUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,8 @@ import java.util.stream.StreamSupport;
 public class CourseService {
     @Autowired
     private CourseDao courseDao;
+
+    Logger log = LoggerFactory.getLogger(CourseService.class);
 //private List<Course> courseDatabase = new ArrayList<Course>();
 
 //create and save course object in db
@@ -24,13 +28,18 @@ public CourseResponseDTO onboardNewCourse(CourseRequestDTO courseRequestDTO) {
     //convert DTO to Entity
     CourseEntity courseEntity = AppUtils.mapDTOToEntity(courseRequestDTO);
     CourseEntity entity = null;
+    log.info("CourseService :: onboardNewCourse method execution started");
     try{
         entity = courseDao.save(courseEntity);
+        log.debug("course Entity response from Database {} ",AppUtils.convertObjectToJson(entity));
         CourseResponseDTO courseResponseDTO = AppUtils.mapEntityToDTO(entity);
         courseResponseDTO.setCourseUniqueCode(UUID.randomUUID().toString().split("-")[0]);
+        log.debug("CourseService::onboardNewCourse method response {} ",AppUtils.convertObjectToJson(courseResponseDTO));
+        log.info("CourseService :: onboardNewCourse method execution ended");
         return courseResponseDTO;
     }
     catch (Exception exception){
+        log.error("CourseService :: onboardNewCourse method exception occurs while persisting the course object to DB ");
         throw new CourseServiceBusinessException("Onboard new course service method failed");
     }
     // convert Entity to Response DTO
@@ -63,27 +72,48 @@ public CourseResponseDTO findByCourseId(Integer courseId) {
 
 //delete the course
     public void deleteCourse(Integer courseId) {
-    courseDao.deleteById(courseId);
-
+log.info("CourseService :: deleteCourse method execution started");
+    try {
+        log.debug("CourseService :: deleteCourse method input {}",courseId);
+        courseDao.deleteById(courseId);
+    }
+catch (Exception ex){
+        log.error("CourseService:: deleteCourse exception occurs while deleting the course object {}",ex.getMessage());
+        throw new CourseServiceBusinessException("deleteCourse service method failed "+ex.getMessage());
+}
+    log.info("CourseService :: deleteCourse method execution ended");
     }
 
     //update the course
     public CourseResponseDTO updateCourse(Integer courseId, CourseRequestDTO courseRequestDTO) {
-    //get the existing obejct and modify that object an save it in db
-       CourseEntity existingCourseEntity = courseDao.findById(courseId).orElse(null);
-        existingCourseEntity.setName(courseRequestDTO.getName());
-        existingCourseEntity.setDuration(courseRequestDTO.getDuration());
-        existingCourseEntity.setTrainerName(courseRequestDTO.getTrainerName());
-        existingCourseEntity.setCourseType(courseRequestDTO.getCourseType());
-        existingCourseEntity.setCount(courseRequestDTO.getCount());
-        existingCourseEntity.setFees(courseRequestDTO.getFees());
-        existingCourseEntity.setStartDate(courseRequestDTO.getStartDate());
-        existingCourseEntity.setIsCertificateAvailable(courseRequestDTO.getIsCertificateAvailable());
-        existingCourseEntity.setDescription(courseRequestDTO.getDescription());
+        log.info("CourseService :: updateCourse method execution started");
+        try {
+            //get the existing obejct and modify that object an save it in db
+            log.debug("CourseService::updateCourse request payload {} & {}", AppUtils.convertObjectToJson(courseRequestDTO), courseId);
+            CourseEntity existingCourseEntity = courseDao.findById(courseId).orElseThrow(()->new RuntimeException("corse object not present in db with id "+courseId));
+            log.debug("CourseService::updateCourse getting existing course object as {}", AppUtils.convertObjectToJson(existingCourseEntity));
+            existingCourseEntity.setName(courseRequestDTO.getName());
+            existingCourseEntity.setDuration(courseRequestDTO.getDuration());
+            existingCourseEntity.setTrainerName(courseRequestDTO.getTrainerName());
+            existingCourseEntity.setCourseType(courseRequestDTO.getCourseType());
+            existingCourseEntity.setCount(courseRequestDTO.getCount());
+            existingCourseEntity.setFees(courseRequestDTO.getFees());
+            existingCourseEntity.setStartDate(courseRequestDTO.getStartDate());
+            existingCourseEntity.setIsCertificateAvailable(courseRequestDTO.getIsCertificateAvailable());
+            existingCourseEntity.setDescription(courseRequestDTO.getDescription());
+            existingCourseEntity.setEmailId(courseRequestDTO.getEmailId());
 
-        CourseEntity updatedCourseEntity =  courseDao.save(existingCourseEntity);
+            CourseEntity updatedCourseEntity = courseDao.save(existingCourseEntity);
+            CourseResponseDTO courseResponseDTO = AppUtils.mapEntityToDTO(updatedCourseEntity);
 
-       return AppUtils.mapEntityToDTO(updatedCourseEntity);
+            log.debug("CourseService::updateCourse getting updated course object as {}", AppUtils.convertObjectToJson(existingCourseEntity));
+            log.info("CourseService :: updateCourse method execution ended");
+            return courseResponseDTO;
+        }
+        catch (Exception ex){
+            log.error("courseService :: updateCourse exception occurs while updating the course object {}",ex.getMessage());
+            throw new CourseServiceBusinessException("updateCourse service method failed " + ex.getMessage());
+        }
     }
 
     public List<Map<String, Object>> getCourseTypeCounts() {

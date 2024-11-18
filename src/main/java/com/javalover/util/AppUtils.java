@@ -1,5 +1,7 @@
 package com.javalover.util;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javalover.dto.CourseRequestDTO;
 import com.javalover.dto.CourseResponseDTO;
 import com.javalover.entity.CourseEntity;
@@ -40,6 +42,13 @@ public class AppUtils {
         courseResponseDTO.setEmailId(courseEntity.getEmailId());
         courseResponseDTO.setContact(courseEntity.getContact());
         return courseResponseDTO;
-
+    }
+    public static String convertObjectToJson(Object object){
+        try {
+           return new ObjectMapper().writeValueAsString(object);
+        }catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }
