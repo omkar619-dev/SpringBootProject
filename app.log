@@ -1,0 +1,189 @@
+2024-11-18 14:18:40,768 [INFO] com.javalover.CourseOmkarProjectApplication {main} Starting CourseOmkarProjectApplication using Java 20.0.2 with PID 20056 (C:\Users\omkar\IdeaProjects\Course Omkar Project\target\classes started by omkar in C:\Users\omkar\IdeaProjects\Course Omkar Project)
+2024-11-18 14:18:40,771 [DEBUG] com.javalover.CourseOmkarProjectApplication {main} Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-18 14:18:40,772 [INFO] com.javalover.CourseOmkarProjectApplication {main} No active profile set, falling back to 1 default profile: "default"
+2024-11-18 14:18:42,097 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-18 14:18:42,211 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Finished Spring Data repository scanning in 100 ms. Found 1 JPA repository interface.
+2024-11-18 14:18:43,167 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat initialized with port 8081 (http)
+2024-11-18 14:18:43,193 [INFO] org.apache.catalina.core.StandardService {main} Starting service [Tomcat]
+2024-11-18 14:18:43,194 [INFO] org.apache.catalina.core.StandardEngine {main} Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-18 14:18:43,309 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {main} Initializing Spring embedded WebApplicationContext
+2024-11-18 14:18:43,309 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext {main} Root WebApplicationContext: initialization completed in 2449 ms
+2024-11-18 14:18:43,362 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Starting...
+2024-11-18 14:18:43,777 [INFO] com.zaxxer.hikari.pool.HikariPool {main} HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-11-18 14:18:43,780 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Start completed.
+2024-11-18 14:18:43,802 [INFO] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration {main} H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-11-18 14:18:44,099 [INFO] org.hibernate.jpa.internal.util.LogHelper {main} HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-18 14:18:44,257 [INFO] org.hibernate.Version {main} HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-18 14:18:44,335 [INFO] org.hibernate.cache.internal.RegionFactoryInitiator {main} HHH000026: Second-level cache disabled
+2024-11-18 14:18:45,022 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo {main} No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-18 14:18:47,111 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator {main} HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-18 14:18:47,189 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {main} Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18 14:18:47,710 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration {main} spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-18 14:18:48,350 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat started on port 8081 (http) with context path '/'
+2024-11-18 14:18:48,366 [INFO] com.javalover.CourseOmkarProjectApplication {main} Started CourseOmkarProjectApplication in 8.434 seconds (process running for 10.361)
+2024-11-18 14:19:02,898 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {http-nio-8081-exec-3} Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-18 14:19:02,898 [INFO] org.springframework.web.servlet.DispatcherServlet {http-nio-8081-exec-3} Initializing Servlet 'dispatcherServlet'
+2024-11-18 14:19:02,900 [INFO] org.springframework.web.servlet.DispatcherServlet {http-nio-8081-exec-3} Completed initialization in 1 ms
+2024-11-18 14:19:03,252 [INFO] com.javalover.controller.CourseController {http-nio-8081-exec-3} CourseController:addCourse Request Payload :{"name":"Spring boot","duration":"90","trainerName":"Mr Basant","courseType":"LIVE","count":null,"fees":6000.0,"startDate":"18-10-2024","isCertificateAvailable":null,"emailId":"omkarns@gmail.com","contact":"9869246430","description":"course sp"}
+2024-11-18 14:19:03,253 [INFO] com.javalover.service.CourseService {http-nio-8081-exec-3} CourseService :: onboardNewCourse method execution started
+2024-11-18 14:19:03,439 [DEBUG] com.javalover.service.CourseService {http-nio-8081-exec-3} course Entity response from Database {"courseId":1,"name":"Spring boot","duration":"90","trainerName":"Mr Basant","courseType":"LIVE","count":null,"fees":6000.0,"startDate":"18-10-2024","isCertificateAvailable":null,"emailId":"omkarns@gmail.com","contact":"9869246430","description":"course sp"} 
+2024-11-18 14:19:03,447 [DEBUG] com.javalover.service.CourseService {http-nio-8081-exec-3} CourseService::onboardNewCourse method response {"courseId":1,"name":"Spring boot","duration":"90","trainerName":"Mr Basant","courseType":"LIVE","fees":6000.0,"startDate":"18-10-2024","courseUniqueCode":"f7d61c2e","emailId":"omkarns@gmail.com","contact":"9869246430","description":"course sp"} 
+2024-11-18 14:19:03,447 [INFO] com.javalover.service.CourseService {http-nio-8081-exec-3} CourseService :: onboardNewCourse method execution ended
+2024-11-18 14:19:03,460 [INFO] com.javalover.controller.CourseController {http-nio-8081-exec-3} CourseController:addCourse Response   :{"status":"CREATED","response":{"courseId":1,"name":"Spring boot","duration":"90","trainerName":"Mr Basant","courseType":"LIVE","fees":6000.0,"startDate":"18-10-2024","courseUniqueCode":"f7d61c2e","emailId":"omkarns@gmail.com","contact":"9869246430","description":"course sp"},"error":null}
+2024-11-18 20:35:39,526 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {SpringApplicationShutdownHook} Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18 20:35:39,696 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown initiated...
+2024-11-18 20:35:39,733 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown completed.
+2024-11-18 20:40:31,378 [INFO] com.javalover.CourseOmkarProjectApplication {main} Starting CourseOmkarProjectApplication using Java 20.0.2 with PID 11432 (C:\Users\omkar\IdeaProjects\Course Omkar Project\target\classes started by omkar in C:\Users\omkar\IdeaProjects\Course Omkar Project)
+2024-11-18 20:40:31,381 [DEBUG] com.javalover.CourseOmkarProjectApplication {main} Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-18 20:40:31,383 [INFO] com.javalover.CourseOmkarProjectApplication {main} No active profile set, falling back to 1 default profile: "default"
+2024-11-18 20:40:32,947 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-18 20:40:33,062 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Finished Spring Data repository scanning in 101 ms. Found 1 JPA repository interface.
+2024-11-18 20:40:34,065 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat initialized with port 8081 (http)
+2024-11-18 20:40:34,096 [INFO] org.apache.catalina.core.StandardService {main} Starting service [Tomcat]
+2024-11-18 20:40:34,096 [INFO] org.apache.catalina.core.StandardEngine {main} Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-18 20:40:34,228 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {main} Initializing Spring embedded WebApplicationContext
+2024-11-18 20:40:34,230 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext {main} Root WebApplicationContext: initialization completed in 2715 ms
+2024-11-18 20:40:34,302 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Starting...
+2024-11-18 20:40:34,765 [INFO] com.zaxxer.hikari.pool.HikariPool {main} HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-11-18 20:40:34,769 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Start completed.
+2024-11-18 20:40:34,794 [INFO] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration {main} H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-11-18 20:40:35,162 [INFO] org.hibernate.jpa.internal.util.LogHelper {main} HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-18 20:40:35,327 [INFO] org.hibernate.Version {main} HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-18 20:40:35,417 [INFO] org.hibernate.cache.internal.RegionFactoryInitiator {main} HHH000026: Second-level cache disabled
+2024-11-18 20:40:36,156 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo {main} No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-18 20:40:38,071 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator {main} HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-18 20:40:38,147 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {main} Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18 20:40:38,649 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration {main} spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-18 20:40:39,700 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat started on port 8081 (http) with context path '/'
+2024-11-18 20:40:39,714 [INFO] com.javalover.CourseOmkarProjectApplication {main} Started CourseOmkarProjectApplication in 9.44 seconds (process running for 11.158)
+2024-11-18 20:41:31,104 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {http-nio-8081-exec-1} Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-18 20:41:31,104 [INFO] org.springframework.web.servlet.DispatcherServlet {http-nio-8081-exec-1} Initializing Servlet 'dispatcherServlet'
+2024-11-18 20:41:31,107 [INFO] org.springframework.web.servlet.DispatcherServlet {http-nio-8081-exec-1} Completed initialization in 2 ms
+2024-11-18 20:42:26,282 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {SpringApplicationShutdownHook} Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18 20:42:26,285 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown initiated...
+2024-11-18 20:42:26,287 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown completed.
+2024-11-18 20:43:04,665 [INFO] com.javalover.CourseOmkarProjectApplication {main} Starting CourseOmkarProjectApplication using Java 20.0.2 with PID 4412 (C:\Users\omkar\IdeaProjects\Course Omkar Project\target\classes started by omkar in C:\Users\omkar\IdeaProjects\Course Omkar Project)
+2024-11-18 20:43:04,666 [DEBUG] com.javalover.CourseOmkarProjectApplication {main} Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-18 20:43:04,666 [INFO] com.javalover.CourseOmkarProjectApplication {main} No active profile set, falling back to 1 default profile: "default"
+2024-11-18 20:43:05,154 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-18 20:43:05,197 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Finished Spring Data repository scanning in 36 ms. Found 1 JPA repository interface.
+2024-11-18 20:43:05,582 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat initialized with port 8081 (http)
+2024-11-18 20:43:05,593 [INFO] org.apache.catalina.core.StandardService {main} Starting service [Tomcat]
+2024-11-18 20:43:05,593 [INFO] org.apache.catalina.core.StandardEngine {main} Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-18 20:43:05,652 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {main} Initializing Spring embedded WebApplicationContext
+2024-11-18 20:43:05,652 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext {main} Root WebApplicationContext: initialization completed in 956 ms
+2024-11-18 20:43:05,675 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Starting...
+2024-11-18 20:43:05,854 [INFO] com.zaxxer.hikari.pool.HikariPool {main} HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-11-18 20:43:05,855 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Start completed.
+2024-11-18 20:43:05,869 [INFO] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration {main} H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-11-18 20:43:05,977 [INFO] org.hibernate.jpa.internal.util.LogHelper {main} HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-18 20:43:06,040 [INFO] org.hibernate.Version {main} HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-18 20:43:06,080 [INFO] org.hibernate.cache.internal.RegionFactoryInitiator {main} HHH000026: Second-level cache disabled
+2024-11-18 20:43:06,381 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo {main} No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-18 20:43:07,165 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator {main} HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-18 20:43:07,195 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {main} Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18 20:43:07,399 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration {main} spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-18 20:43:07,831 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat started on port 8081 (http) with context path '/'
+2024-11-18 20:43:07,837 [INFO] com.javalover.CourseOmkarProjectApplication {main} Started CourseOmkarProjectApplication in 3.5 seconds (process running for 4.167)
+2024-11-18 20:43:14,755 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {http-nio-8081-exec-1} Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-18 20:43:14,755 [INFO] org.springframework.web.servlet.DispatcherServlet {http-nio-8081-exec-1} Initializing Servlet 'dispatcherServlet'
+2024-11-18 20:43:14,756 [INFO] org.springframework.web.servlet.DispatcherServlet {http-nio-8081-exec-1} Completed initialization in 1 ms
+2024-11-18 20:45:25,851 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {SpringApplicationShutdownHook} Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18 20:45:25,854 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown initiated...
+2024-11-18 20:45:25,855 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown completed.
+2024-11-18 20:45:30,972 [INFO] com.javalover.CourseOmkarProjectApplication {main} Starting CourseOmkarProjectApplication using Java 20.0.2 with PID 9740 (C:\Users\omkar\IdeaProjects\Course Omkar Project\target\classes started by omkar in C:\Users\omkar\IdeaProjects\Course Omkar Project)
+2024-11-18 20:45:30,973 [DEBUG] com.javalover.CourseOmkarProjectApplication {main} Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-18 20:45:30,974 [INFO] com.javalover.CourseOmkarProjectApplication {main} No active profile set, falling back to 1 default profile: "default"
+2024-11-18 20:45:31,553 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-18 20:45:31,594 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Finished Spring Data repository scanning in 35 ms. Found 1 JPA repository interface.
+2024-11-18 20:45:31,948 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat initialized with port 8081 (http)
+2024-11-18 20:45:31,957 [INFO] org.apache.catalina.core.StandardService {main} Starting service [Tomcat]
+2024-11-18 20:45:31,957 [INFO] org.apache.catalina.core.StandardEngine {main} Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-18 20:45:32,008 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {main} Initializing Spring embedded WebApplicationContext
+2024-11-18 20:45:32,009 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext {main} Root WebApplicationContext: initialization completed in 994 ms
+2024-11-18 20:45:32,028 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Starting...
+2024-11-18 20:45:32,190 [INFO] com.zaxxer.hikari.pool.HikariPool {main} HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-11-18 20:45:32,191 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Start completed.
+2024-11-18 20:45:32,201 [INFO] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration {main} H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-11-18 20:45:32,307 [INFO] org.hibernate.jpa.internal.util.LogHelper {main} HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-18 20:45:32,352 [INFO] org.hibernate.Version {main} HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-18 20:45:32,380 [INFO] org.hibernate.cache.internal.RegionFactoryInitiator {main} HHH000026: Second-level cache disabled
+2024-11-18 20:45:32,635 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo {main} No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-18 20:45:33,435 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator {main} HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-18 20:45:33,462 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {main} Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18 20:45:33,757 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration {main} spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-18 20:45:34,139 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat started on port 8081 (http) with context path '/'
+2024-11-18 20:45:34,146 [INFO] com.javalover.CourseOmkarProjectApplication {main} Started CourseOmkarProjectApplication in 3.546 seconds (process running for 4.187)
+2024-11-18 20:45:40,562 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {http-nio-8081-exec-1} Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-18 20:45:40,562 [INFO] org.springframework.web.servlet.DispatcherServlet {http-nio-8081-exec-1} Initializing Servlet 'dispatcherServlet'
+2024-11-18 20:45:40,563 [INFO] org.springframework.web.servlet.DispatcherServlet {http-nio-8081-exec-1} Completed initialization in 1 ms
+2024-11-18 20:45:41,329 [INFO] org.springdoc.api.AbstractOpenApiResource {http-nio-8081-exec-9} Init duration for springdoc-openapi is: 344 ms
+2024-11-18 21:04:20,713 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {SpringApplicationShutdownHook} Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18 21:04:20,715 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown initiated...
+2024-11-18 21:04:20,717 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown completed.
+2024-11-18 21:04:24,122 [INFO] com.javalover.CourseOmkarProjectApplication {main} Starting CourseOmkarProjectApplication using Java 20.0.2 with PID 25552 (C:\Users\omkar\IdeaProjects\Course Omkar Project\target\classes started by omkar in C:\Users\omkar\IdeaProjects\Course Omkar Project)
+2024-11-18 21:04:24,123 [DEBUG] com.javalover.CourseOmkarProjectApplication {main} Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-18 21:04:24,123 [INFO] com.javalover.CourseOmkarProjectApplication {main} No active profile set, falling back to 1 default profile: "default"
+2024-11-18 21:04:24,708 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-18 21:04:24,751 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Finished Spring Data repository scanning in 36 ms. Found 1 JPA repository interface.
+2024-11-18 21:04:25,150 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat initialized with port 8081 (http)
+2024-11-18 21:04:25,161 [INFO] org.apache.catalina.core.StandardService {main} Starting service [Tomcat]
+2024-11-18 21:04:25,161 [INFO] org.apache.catalina.core.StandardEngine {main} Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-18 21:04:25,214 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {main} Initializing Spring embedded WebApplicationContext
+2024-11-18 21:04:25,216 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext {main} Root WebApplicationContext: initialization completed in 1046 ms
+2024-11-18 21:04:25,236 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Starting...
+2024-11-18 21:04:25,423 [INFO] com.zaxxer.hikari.pool.HikariPool {main} HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-11-18 21:04:25,424 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Start completed.
+2024-11-18 21:04:25,434 [INFO] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration {main} H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-11-18 21:04:25,549 [INFO] org.hibernate.jpa.internal.util.LogHelper {main} HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-18 21:04:25,621 [INFO] org.hibernate.Version {main} HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-18 21:04:25,665 [INFO] org.hibernate.cache.internal.RegionFactoryInitiator {main} HHH000026: Second-level cache disabled
+2024-11-18 21:04:25,996 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo {main} No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-18 21:04:26,843 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator {main} HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-18 21:04:26,872 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {main} Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18 21:04:27,173 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration {main} spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-18 21:04:27,498 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat started on port 8081 (http) with context path '/'
+2024-11-18 21:04:27,506 [INFO] com.javalover.CourseOmkarProjectApplication {main} Started CourseOmkarProjectApplication in 3.755 seconds (process running for 4.405)
+2024-11-18 21:04:52,731 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {http-nio-8081-exec-1} Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-18 21:04:52,731 [INFO] org.springframework.web.servlet.DispatcherServlet {http-nio-8081-exec-1} Initializing Servlet 'dispatcherServlet'
+2024-11-18 21:04:52,733 [INFO] org.springframework.web.servlet.DispatcherServlet {http-nio-8081-exec-1} Completed initialization in 1 ms
+2024-11-18 21:04:53,087 [INFO] org.springdoc.api.AbstractOpenApiResource {http-nio-8081-exec-1} Init duration for springdoc-openapi is: 309 ms
+2024-11-18 21:10:56,044 [INFO] com.javalover.controller.CourseController {http-nio-8081-exec-7} CourseController:addCourse Request Payload :{"name":"omkar","duration":"30","trainerName":"das","courseType":"LIVE","count":1,"fees":10000.0,"startDate":"16-05-0024","isCertificateAvailable":true,"emailId":"omkar@gmail.com","contact":"6350167061","description":"someth"}
+2024-11-18 21:10:56,044 [INFO] com.javalover.service.CourseService {http-nio-8081-exec-7} CourseService :: onboardNewCourse method execution started
+2024-11-18 21:10:56,111 [DEBUG] com.javalover.service.CourseService {http-nio-8081-exec-7} course Entity response from Database {"courseId":1,"name":"omkar","duration":"30","trainerName":"das","courseType":"LIVE","count":1,"fees":10000.0,"startDate":"16-05-0024","isCertificateAvailable":true,"emailId":"omkar@gmail.com","contact":"6350167061","description":"someth"} 
+2024-11-18 21:10:56,112 [DEBUG] com.javalover.service.CourseService {http-nio-8081-exec-7} CourseService::onboardNewCourse method response {"courseId":1,"name":"omkar","duration":"30","trainerName":"das","courseType":"LIVE","count":1,"fees":10000.0,"startDate":"16-05-0024","isCertificateAvailable":true,"courseUniqueCode":"eacb125d","emailId":"omkar@gmail.com","contact":"6350167061","description":"someth"} 
+2024-11-18 21:10:56,112 [INFO] com.javalover.service.CourseService {http-nio-8081-exec-7} CourseService :: onboardNewCourse method execution ended
+2024-11-18 21:10:56,113 [INFO] com.javalover.controller.CourseController {http-nio-8081-exec-7} CourseController:addCourse Response   :{"status":"CREATED","response":{"courseId":1,"name":"omkar","duration":"30","trainerName":"das","courseType":"LIVE","count":1,"fees":10000.0,"startDate":"16-05-0024","isCertificateAvailable":true,"courseUniqueCode":"eacb125d","emailId":"omkar@gmail.com","contact":"6350167061","description":"someth"},"error":null}
+2024-11-18 21:22:43,656 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {SpringApplicationShutdownHook} Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18 21:22:43,659 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown initiated...
+2024-11-18 21:22:43,660 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown completed.
+2024-11-18 21:22:48,210 [INFO] com.javalover.CourseOmkarProjectApplication {main} Starting CourseOmkarProjectApplication using Java 20.0.2 with PID 19112 (C:\Users\omkar\IdeaProjects\Course Omkar Project\target\classes started by omkar in C:\Users\omkar\IdeaProjects\Course Omkar Project)
+2024-11-18 21:22:48,211 [DEBUG] com.javalover.CourseOmkarProjectApplication {main} Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-11-18 21:22:48,213 [INFO] com.javalover.CourseOmkarProjectApplication {main} No active profile set, falling back to 1 default profile: "default"
+2024-11-18 21:22:48,845 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-18 21:22:48,888 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Finished Spring Data repository scanning in 37 ms. Found 1 JPA repository interface.
+2024-11-18 21:22:49,282 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat initialized with port 8081 (http)
+2024-11-18 21:22:49,294 [INFO] org.apache.catalina.core.StandardService {main} Starting service [Tomcat]
+2024-11-18 21:22:49,295 [INFO] org.apache.catalina.core.StandardEngine {main} Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-18 21:22:49,349 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {main} Initializing Spring embedded WebApplicationContext
+2024-11-18 21:22:49,349 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext {main} Root WebApplicationContext: initialization completed in 1089 ms
+2024-11-18 21:22:49,376 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Starting...
+2024-11-18 21:22:49,560 [INFO] com.zaxxer.hikari.pool.HikariPool {main} HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-11-18 21:22:49,562 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Start completed.
+2024-11-18 21:22:49,572 [INFO] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration {main} H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-11-18 21:22:49,689 [INFO] org.hibernate.jpa.internal.util.LogHelper {main} HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-18 21:22:49,735 [INFO] org.hibernate.Version {main} HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-18 21:22:49,765 [INFO] org.hibernate.cache.internal.RegionFactoryInitiator {main} HHH000026: Second-level cache disabled
+2024-11-18 21:22:50,003 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo {main} No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-18 21:22:50,749 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator {main} HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-18 21:22:50,782 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {main} Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18 21:22:51,092 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration {main} spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-18 21:22:51,398 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat started on port 8081 (http) with context path '/'
+2024-11-18 21:22:51,406 [INFO] com.javalover.CourseOmkarProjectApplication {main} Started CourseOmkarProjectApplication in 3.591 seconds (process running for 4.17)
+2024-11-18 21:22:58,634 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {http-nio-8081-exec-1} Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-18 21:22:58,634 [INFO] org.springframework.web.servlet.DispatcherServlet {http-nio-8081-exec-1} Initializing Servlet 'dispatcherServlet'
+2024-11-18 21:22:58,635 [INFO] org.springframework.web.servlet.DispatcherServlet {http-nio-8081-exec-1} Completed initialization in 1 ms
+2024-11-18 21:22:59,244 [INFO] org.springdoc.api.AbstractOpenApiResource {http-nio-8081-exec-9} Init duration for springdoc-openapi is: 291 ms
+2024-11-18 23:31:06,376 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {SpringApplicationShutdownHook} Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18 23:31:06,503 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown initiated...
+2024-11-18 23:31:06,531 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown completed.
